@@ -1,0 +1,23 @@
+.list-text{
+    font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: x-large;   
+
+}
+.eye-icon:hover{
+    cursor: pointer;
+}
+
+.car-list{
+    
+    font-size: xx-large;
+    background-color: #96858F;
+    text-shadow: 2px 2px 3px rgb(151, 112, 135); 
+    margin: .25rem 15% .25rem 15%;
+    padding: .25em;
+    border: 1px solid black ;
+    display: flex;
+    justify-content: space-between;
+    
+
+}
+

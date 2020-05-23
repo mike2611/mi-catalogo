@@ -3,16 +3,16 @@
     justify-content: space-around;
 
     background-color: #d5d5d5;
-    margin: 1rem;
-    padding: 1rem;
-    border: 2px solid  #96858F;
+    margin: .25rem 15% .25rem 15%;
+    border: 1px solid  #96858F;
+    text-shadow: 1px 1px 2px rgb(88, 71, 81); 
      
 
 }
 
-.vistaText{
-    font-size: xx-large;
+h2{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: snow;
-   
+    font-size: large;
+    margin: 2px;
 }
+
