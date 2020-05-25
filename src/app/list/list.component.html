@@ -1,9 +1,27 @@
 <ng-container *ngFor = "let auto of autos">
     <div class="car-list">
-        <div class="list-text"> {{auto.descripcion}} </div>  
-         <div class="far fa-eye eye-icon"></div>
-                
+        <div class="far fa-eye eye-icon" (click)="onClick(content, auto)"></div>
+        <div class="list-text"> {{auto.descripcion}}</div>                 
     </div>
 </ng-container>
+
+<ng-template #content let-d="dismiss">
+    <div class="modal-header modal-color">
+        <h3 class="modal-title" id="modal-basic-title">Informacion Automovil</h3>
+        <button type="button" class="close" aria-label="close" (click)="d('Cross click')">
+            <span><i class="far fa-eye-slash"></i></span>
+        </button>
+    </div>
+
+    <div class="modal-body modal-color">
+         <div>{{autoMarca}}</div> 
+        <div>{{autoModelo}}</div>
+        <div>{{autoFecha}}</div>
+    </div>
+
+    
+</ng-template>
+    
+
 
 
