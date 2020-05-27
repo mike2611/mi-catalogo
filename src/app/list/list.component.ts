@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AUTOMOVILES } from '../data';
 import {Automovil} from '../models';
 import {NgbModalConfig, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { AutosService } from '../services/autos.service';
 
 @Component({
   selector: 'app-list',
@@ -12,22 +12,27 @@ import {NgbModalConfig, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class ListComponent implements OnInit {
 
   autos: Automovil[];
-  autoMarca: String;
+  autoSubmarca: String;
   autoModelo: String;
-  autoFecha: String;
-  constructor(config: NgbModalConfig, private modalService: NgbModal) 
+  autoDescripcion: String;
+  autoMarca: String;
+  constructor(config: NgbModalConfig, private modalService: NgbModal, private autoService: AutosService) 
   { }
 
   ngOnInit(): void {
-    this.autos = AUTOMOVILES;
+
+    this.autoService.getAutos().subscribe((response)=>{
+      this.autos = response.data;})
+
   }
 
   onClick(content, auto: Automovil){
     this.modalService.open(content)
     
     this.autoMarca = "Marca: " + auto.marca;
-    this.autoModelo = "Modelo: " + auto.modelo;
-    this.autoFecha = "Fecha de Registro: " + auto.fecha_registro.getDay().toString()+"/"+auto.fecha_registro.getMonth().toString() + "/" + auto.fecha_registro.getFullYear().toString();
+    this.autoSubmarca = "Submarca: " + auto.submarca;
+    this.autoModelo = "Modelos: " + auto.modelos;
+    this.autoDescripcion = "Descripcion: " + auto.descripcion;
     
   }
 

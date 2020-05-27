@@ -3,18 +3,18 @@
         <tr>
             <th scope="col">Marca</th>
             <th scope="col">SubMarca</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Fecha</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Modelos</th>
         </tr>
     </thead> 
     <tbody>
         <tr *ngFor="let auto of autos">
+
             <td>{{auto.marca}}</td>
             <td>{{auto.submarca}}</td>
-            <td>{{auto.modelo}}</td>
-            <td>{{auto.fecha_registro.getDay().toString()+
-                "/"+auto.fecha_registro.getMonth().toString() +
-                 "/" + auto.fecha_registro.getFullYear().toString()}}</td>
+            <td>{{auto.descripcion}}</td>
+            <td>{{auto.modelos}}</td>
+  
             
         </tr>
     </tbody>
