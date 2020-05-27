@@ -1,23 +1,35 @@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Marca</th>
-            <th scope="col">SubMarca</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Modelos</th>
-        </tr>
-    </thead> 
-    <tbody>
-        <tr *ngFor="let auto of autos">
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Marca</th>
+                <th scope="col">SubMarca</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Modelos</th>
+                <th scope="col">  </th>
+                <th scope="col">  </th>
+            </tr>
+        </thead> 
+        <tbody>
+            <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ">
 
-            <td>{{auto.marca}}</td>
-            <td>{{auto.submarca}}</td>
-            <td>{{auto.descripcion}}</td>
-            <td>{{auto.modelos}}</td>
-  
-            
-        </tr>
-    </tbody>
-</table>
+                <td>{{auto.marca}}</td>
+                <td>{{auto.submarca}}</td>
+                <td>{{auto.descripcion}}</td>
+                <td>{{auto.modelos}}</td>
+                <td>
+                    <i class="fas fa-trash"></i>
+                </td>
+                <td>
+                    <i class="fas fa-pen-square"></i>
+                </td>
+    
+                
+            </tr>
+        </tbody>
+    </table>
+    <ngb-pagination class="d-flex justify-content-center " [(page)]="page" [pageSize]="pageSize" [collectionSize]="40"></ngb-pagination>
+</div>
+
 
 

@@ -16,6 +16,9 @@ export class ListComponent implements OnInit {
   autoModelo: String;
   autoDescripcion: String;
   autoMarca: String;
+  page = 1;
+  pageSize = 10;
+  
   constructor(config: NgbModalConfig, private modalService: NgbModal, private autoService: AutosService) 
   { }
 

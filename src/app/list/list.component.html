@@ -1,9 +1,14 @@
-<ng-container *ngFor = "let auto of autos">
-    <div class="car-list">
-        <div class="far fa-eye eye-icon" (click)="onClick(content, auto)"></div>
-        <div class="list-text"> {{auto.descripcion}}</div>                 
-    </div>
-</ng-container>
+<div>
+    <ng-container *ngFor = "let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <div class="car-list">
+            <div class="far fa-eye eye-icon" (click)="onClick(content, auto)"></div>
+            <div class="list-text"> {{auto.descripcion}}</div>                 
+        </div>
+    </ng-container>
+    <ngb-pagination class="d-flex justify-content-center " [(page)]="page" [pageSize]="pageSize" [collectionSize]="40"></ngb-pagination>
+</div>
+
+
 
 <ng-template #content let-d="dismiss">
     <div class="modal-header modal-color">
@@ -22,8 +27,9 @@
 
     </div>
 
-    
 </ng-template>
+
+
     
 
 

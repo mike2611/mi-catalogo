@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {AUTOMOVILES} from  '../data';
+import { Component, OnInit, Input } from '@angular/core';
 import {Automovil} from '../models';
 import { AutosService } from '../services/autos.service';
 
@@ -7,12 +6,17 @@ import { AutosService } from '../services/autos.service';
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
-})
+}) 
+
 
 
 export class TableComponent implements OnInit {
 
   autos: Automovil[];
+  page = 1;
+  pageSize = 10;
+
+ 
 
   constructor(private autoService: AutosService) { }
 
