@@ -1,0 +1,30 @@
+
+    <div class="modal-header modal-color">
+        <h3 class="modal-title" id="modal-basic-title">{{accion}}</h3>
+        <button type="button" class="close" aria-label="close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body modal-color">
+        <form>
+            <div class="form-group">
+                <label for="marca">Marca</label>
+                <input type="text" class="form-control" id="marca" placeholder="Agrega la marca">
+            </div>
+            <div class="form-group">
+                <label for="Submarca">Submarca</label>
+                <input type="text" class="form-control" id="marca" placeholder="Agrega la submarca">
+            </div>
+            <div class="form-group">
+                <label for="Descripcion">Descripcion</label>
+                <input type="text" class="form-control" id="marca" placeholder="Agrega la descripcion">
+            </div>
+            <div class="form-group">
+                <label for="modelos">Modelos</label>
+                <input type="text" class="form-control"  disabled class="form-control" id="marca" placeholder="Agrega el modelo">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer modal-color">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Guardar</button>
+    </div>

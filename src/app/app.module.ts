@@ -11,6 +11,7 @@ import { ListComponent } from './list/list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableComponent } from './table/table.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     VistasComponent,
     ListComponent,
     TableComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ModalAddUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalAddUpdateComponent]
 })
 export class AppModule { }

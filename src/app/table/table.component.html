@@ -1,4 +1,10 @@
 <div>
+    <div (click)="openModalNuevo() "> 
+        <h5>NUEVO
+        <i class="fas fa-plus-circle"></i>
+        </h5>
+    </div>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -17,10 +23,10 @@
                 <td>{{auto.submarca}}</td>
                 <td>{{auto.descripcion}}</td>
                 <td>{{auto.modelos}}</td>
-                <td>
+                <td  > 
                     <i class="fas fa-trash"></i>
                 </td>
-                <td>
+                <td (click)="openModalEditar(auto)"> 
                     <i class="fas fa-pen-square"></i>
                 </td>
     
@@ -28,7 +34,7 @@
             </tr>
         </tbody>
     </table>
-    <ngb-pagination class="d-flex justify-content-center " [(page)]="page" [pageSize]="pageSize" [collectionSize]="40"></ngb-pagination>
+    <ngb-pagination class="d-flex justify-content-center " [(page)]="page" [pageSize]="pageSize" [collectionSize]="autos?.length"></ngb-pagination>
 </div>
 
 

@@ -6,3 +6,6 @@ tbody{
     border: 3px solid #96858F ;
 }
 
+i:hover{
+    cursor: pointer;
+}
