@@ -10,9 +10,21 @@ import { Automovil } from '../models';
 export class ModalAddUpdateComponent {
 
   accion: string;
-  auto: Automovil;
+  public auto: Automovil = {
+    _id: '',
+    marca : '',
+    submarca: '',
+    modelos:[],
+    descripcion: ''
 
-  constructor(public activeModal: NgbActiveModal) { }
+  }
+  
+
+
+  constructor(public activeModal: NgbActiveModal) { 
+   
+  }
+
 
   
 }

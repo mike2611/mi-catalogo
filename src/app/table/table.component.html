@@ -1,6 +1,6 @@
 <div>
-    <div (click)="openModalNuevo() "> 
-        <h5>NUEVO
+    <div (click)="openModalAgregar()" class="float-right m-2"> 
+        <h5 class="agregar">Agregar
         <i class="fas fa-plus-circle"></i>
         </h5>
     </div>
@@ -8,6 +8,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th scope="col">Id</th>
                 <th scope="col">Marca</th>
                 <th scope="col">SubMarca</th>
                 <th scope="col">Descripcion</th>
@@ -18,12 +19,12 @@
         </thead> 
         <tbody>
             <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ">
-
+                <td scope="row">{{auto._id}}</td>
                 <td>{{auto.marca}}</td>
                 <td>{{auto.submarca}}</td>
                 <td>{{auto.descripcion}}</td>
                 <td>{{auto.modelos}}</td>
-                <td  > 
+                <td (click)="openModalEliminar(auto)"> 
                     <i class="fas fa-trash"></i>
                 </td>
                 <td (click)="openModalEditar(auto)"> 

@@ -3,6 +3,9 @@ import {Automovil} from '../models';
 import { AutosService } from '../services/autos.service';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalAddUpdateComponent } from '../modal-add-update/modal-add-update.component';
+import { ModalDeleteComponent } from '../modal-delete/modal-delete.component';
+import { NgForm } from '@angular/forms';
+import { AUTOMOVILES } from '../data';
 
 @Component({
   selector: 'app-table',
@@ -33,12 +36,46 @@ export class TableComponent implements OnInit {
     const modalRef = this.modalService.open(ModalAddUpdateComponent,{centered:true});
     modalRef.componentInstance.auto = auto;
     modalRef.componentInstance.accion = 'Editar';
+
+    modalRef.result.then(
+      (auto)=>{
+        this.autoService.updateAutos(auto).subscribe(response => console.log(response));
+      },
+      (reason)=>{
+        console.log(reason);
+      }
+    )
   }
 
-  openModalNuevo(){
+  openModalAgregar(){
     const modalRef = this.modalService.open(ModalAddUpdateComponent,{centered:true});
-    modalRef.componentInstance.auto = "";
-    modalRef.componentInstance.accion = 'Nuevo';
+    modalRef.componentInstance.accion = 'Agregar';
+
+    modalRef.result.then(
+      (autoForm)=>{
+        this.autoService.addAutos(autoForm).subscribe(response => console.log(response));
+      },
+      (reason)=>{
+        console.log(reason);
+      }
+    )
+
   }
+
+  openModalEliminar(auto : Automovil){
+    const modalRef = this.modalService.open(ModalDeleteComponent,{centered : true});
+    modalRef.componentInstance.auto = auto;
+    modalRef.result.then(
+      (autoTemp) => {
+        this.autoService.deleteAutos(autoTemp).subscribe(response => {console.log(response)});
+      },
+      (reason) =>{
+       console.log(reason);
+      }
+
+    )
+  }
+
+
 
 }
