@@ -15,6 +15,7 @@ import { ModalAddUpdateComponent } from './modal-add-update/modal-add-update.com
 import { FormsModule } from '@angular/forms';
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
 import { RangoModelosDirective } from './directives/rango-modelos.directive';
+import { FormatoModelosPipe } from './pipes/formato-modelos.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RangoModelosDirective } from './directives/rango-modelos.directive';
     NotFoundComponent,
     ModalAddUpdateComponent,
     ModalDeleteComponent,
-    RangoModelosDirective
+    RangoModelosDirective,
+    FormatoModelosPipe
   ],
   imports: [
     BrowserModule,
