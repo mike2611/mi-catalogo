@@ -23,7 +23,7 @@
                 <td>{{auto.marca}}</td>
                 <td>{{auto.submarca}}</td>
                 <td>{{auto.descripcion}}</td>
-                <td>{{auto.modelos}}</td>
+                <td>[Desde: {{auto.modelos[0]}} Hasta: {{auto.modelos[auto.modelos.length-1]}}]</td>
                 <td (click)="openModalEliminar(auto)"> 
                     <i class="fas fa-trash"></i>
                 </td>

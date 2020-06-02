@@ -33,13 +33,14 @@ export class TableComponent implements OnInit {
   }
 
   openModalEditar(auto: Automovil){
+    auto.modelos=[auto.modelos[0],auto.modelos[auto.modelos.length-1]];
     const modalRef = this.modalService.open(ModalAddUpdateComponent,{centered:true});
     modalRef.componentInstance.auto = auto;
     modalRef.componentInstance.accion = 'Editar';
 
     modalRef.result.then(
-      (auto)=>{
-        this.autoService.updateAutos(auto).subscribe(response => console.log(response));
+      (auto)=>{     
+        this.autoService.updateAutos(auto).subscribe(response => console.log(response));     
       },
       (reason)=>{
         console.log(reason);
@@ -53,7 +54,7 @@ export class TableComponent implements OnInit {
 
     modalRef.result.then(
       (autoForm)=>{
-        this.autoService.addAutos(autoForm).subscribe(response => console.log(response));
+        this.autoService.addAutos(autoForm).subscribe(response => console.log(response));         
       },
       (reason)=>{
         console.log(reason);

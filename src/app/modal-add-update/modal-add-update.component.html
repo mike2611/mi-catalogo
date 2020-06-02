@@ -6,25 +6,54 @@
         </button>
     </div>
     <div class="modal-body modal-color">
-        <form  #form="ngForm" > 
+        <form  #formAutos="ngForm" (ngSubmit)="onSubmit()"> 
             <div class="form-group">
                 <label for="marca">Marca</label>
-                <input type="text" class="form-control" id="marca" placeholder="Agrega la marca" [(ngModel)]="auto.marca" name="marca">
+                <input type="text" class="form-control" id="marca" placeholder="Agrega la marca" [(ngModel)]="auto.marca" name="marca" required
+                 minlength="4" #marca = "ngModel">
             </div>
+            <div *ngIf="marca.invalid && (marca.dirty || marca.touched)">
+                <div *ngIf="marca.errors.minlength" class="alert alert-danger">El campo marca debe tener un mínimo de 4 caracteres</div>
+                <div *ngIf="marca.errors.required" class="alert alert-danger">El campo marca es requerido</div>
+            </div>
+
             <div class="form-group">
                 <label for="Submarca">Submarca</label>
-                <input type="text" class="form-control" id="marca" placeholder="Agrega la submarca" [(ngModel)]="auto.submarca" name="submarca">
+                <input type="text" class="form-control" id="marca" placeholder="Agrega la submarca" [(ngModel)]="auto.submarca" name="submarca" required
+                 minlength="4" #submarca = "ngModel">
             </div>
+            <div *ngIf="submarca.invalid && (submarca.dirty || submarca.touched)">
+                <div *ngIf="submarca.errors.minlength" class="alert alert-danger">El campo submarca debe tener un mínimo de 4 caracteres</div>
+                <div *ngIf="submarca.errors.required" class="alert alert-danger">El campo submarca es requerido</div>
+            </div>
+
             <div class="form-group">
                 <label for="Descripcion">Descripcion</label>
                 <input type="text" class="form-control" id="marca" placeholder="Agrega la descripcion" [(ngModel)]="auto.descripcion" name="descripcion">
             </div>
             <div class="form-group">
-                <label for="modelos">Modelos</label>
-                <input type="text"  disabled class="form-control" id="marca" placeholder="Agrega el modelo" [(ngModel)]="auto.modelos" name="modelo">
+                <label for="modelos">Modelos desde: </label>
+                <div>
+                    <input [class.is-invalid]="auto.modelos[0] > auto.modelos[auto.modelos.length-1]" type="range" min = 2000 max = "2020" class="form-control"  [(ngModel)]="auto.modelos[0]" name="modelo">
+                    <input type="text" disabled class="form-control" placeholder="Agrega Fecha" [(ngModel)]="auto.modelos[0]" name="modelov">
+                </div>
             </div>
+            <div class="form-group">
+                <label for="modelos2">Modelos hasta: </label>
+                <div>
+                    <input  [class.is-invalid]="auto.modelos[0] > auto.modelos[auto.modelos.length-1]" type="range" min = 2000 max = 2020 class="form-control"  [(ngModel)]="auto.modelos[auto.modelos.length-1]"  
+                     appRangoModelos="auto.modelos" name="modelo2" #modelo="ngModel">
+                    <input  type="text" disabled class="form-control" placeholder="Agrega Fecha" [(ngModel)]="auto.modelos[auto.modelos.length-1]" name="modelov2">  
+                </div>
+            </div>
+            <div *ngIf="auto.modelos[0] > auto.modelos[auto.modelos.length-1]">
+                <div class="alert alert-danger">El primer modelo no puede tener una fecha posterior al ultimo modelo</div>
+            </div>
+            
+
+           
             <div class="modal-footer modal-color">
-                <button type="submit" class="btn btn-outline-dark" (click)="activeModal.close(auto)">Guardar</button>
+                <button type="submit" class="btn btn-outline-dark" [disabled]="formAutos.form.invalid" name="guardar" (click)="onSubmit()">Guardar</button>
             </div>        
         </form>
     </div>

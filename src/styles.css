@@ -3,3 +3,11 @@ body,html{
     margin: 0;
     background-color: #D5D5D5;
 }
+
+.ng-valid[required]{
+    border-left: 5px solid rgb(84, 115, 184);
+}
+
+.ng-invalid:not(form){
+    border-left: 5px solid rgba(226, 75, 75, 0.616);
+}
