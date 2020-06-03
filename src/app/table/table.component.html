@@ -1,10 +1,15 @@
 <div>
+    <div *ngIf="displayProgressBar">
+        <ngb-progressbar type="secondary" [value]="100" [animated]="true" [striped]="true" ></ngb-progressbar>
+    </div>
     <div (click)="openModalAgregar()" class="float-right m-2"> 
         <h5 class="agregar">Agregar
         <i class="fas fa-plus-circle"></i>
         </h5>
     </div>
 
+    
+   
     <table class="table table-striped">
         <thead>
             <tr>

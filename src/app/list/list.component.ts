@@ -16,19 +16,23 @@ export class ListComponent implements OnInit {
   autoModelo: String;
   autoDescripcion: String;
   autoMarca: String;
-  page = 1;
-  pageSize = 10;
+  page : number;
+  pageSize : number;
+  displayProgressBar : boolean;
   
   constructor(config: NgbModalConfig, private modalService: NgbModal, private autoService: AutosService) 
   { }
 
   ngOnInit(): void {
-
+    this.page = 1;
+    this.pageSize = 10;
+    this.displayProgressBar = true;
     this.autoService.getAutos().subscribe((response)=>{
-      this.autos = response.data;})
-
+      setTimeout(() => {
+      this.displayProgressBar = false;
+      this.autos = response.data;},500)
+    })
   }
-
   onClick(content, auto: Automovil){
     this.modalService.open(content)
     

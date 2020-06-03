@@ -9,7 +9,7 @@
         <form  #formAutos="ngForm" (ngSubmit)="onSubmit()"> 
             <div class="form-group">
                 <label for="marca">Marca</label>
-                <input type="text" class="form-control" id="marca" placeholder="Agrega la marca" [(ngModel)]="auto.marca" name="marca" required
+                <input [class.is-invalid]="marca.invalid && (marca.dirty || marca.touched)" type="text" class="form-control" id="marca" placeholder="Agrega la marca" [(ngModel)]="auto.marca" name="marca" required
                  minlength="4" #marca = "ngModel">
             </div>
             <div *ngIf="marca.invalid && (marca.dirty || marca.touched)">

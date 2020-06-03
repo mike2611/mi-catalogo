@@ -21,4 +21,8 @@
 
 }
 
+.progress-bar{
+    margin: .25rem 15% .25rem 15%;
+}
+
 .modal-color{background-color:#D5D5D5;}
