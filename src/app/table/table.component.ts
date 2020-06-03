@@ -27,7 +27,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     this.displayProgressBar = true;
-    this.page = 1;
+    this.page = +sessionStorage.getItem('currentPage');
     this.pageSize = 10;
     this.autoService.getAutos().subscribe((response)=>{
       setTimeout(() => { 
@@ -59,7 +59,9 @@ export class TableComponent implements OnInit {
 
     modalRef.result.then(
       (autoForm)=>{
-        this.autoService.addAutos(autoForm).subscribe(response => console.log(response));         
+        this.autoService.addAutos(autoForm).subscribe(response => console.log(response)); 
+        sessionStorage.setItem('currentPage',this.page.toString());
+        this.ngOnInit();        
       },
       (reason)=>{
         console.log(reason);
@@ -74,6 +76,8 @@ export class TableComponent implements OnInit {
     modalRef.result.then(
       (autoTemp) => {
         this.autoService.deleteAutos(autoTemp).subscribe(response => {console.log(response)});
+        sessionStorage.setItem('currentPage',this.page.toString());
+        this.ngOnInit();
       },
       (reason) =>{
        console.log(reason);
