@@ -6,11 +6,20 @@ tbody{
     border: 3px solid #96858F ;
 }
 
-i:hover{
+i.over:hover{
     cursor: pointer;
 }
 
 .agregar:hover{
     cursor: pointer;
+}
+
+div.input-group{
+    width: 15%;
+    margin: 2px;
+}
+
+.icon-search{
+    margin-top: 10px;
 }
 

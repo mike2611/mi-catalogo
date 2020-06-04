@@ -4,11 +4,21 @@
     </div>
     <div (click)="openModalAgregar()" class="float-right m-2"> 
         <h5 class="agregar">Agregar
-        <i class="fas fa-plus-circle"></i>
+        <i class="fas fa-plus-circle over"></i>
         </h5>
     </div>
 
-    
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Busqueda" 
+          [(ngModel)]="searchText" autocomplete="off">
+          <div class="icon-search">
+            <h5>
+                <i class="fas fa-search"></i>
+            </h5>
+          </div>
+        </div>
+    </div>   
    
     <table class="table table-striped">
         <thead>
@@ -23,17 +33,17 @@
             </tr>
         </thead> 
         <tbody>
-            <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ">
+            <tr *ngFor="let auto of autos | filter:searchText |slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ">
                 <td scope="row">{{auto._id}}</td>
                 <td>{{auto.marca}}</td>
                 <td>{{auto.submarca}}</td>
                 <td>{{auto.descripcion}}</td>
                 <td>{{auto.modelos | formatoModelos}}</td>
                 <td (click)="openModalEliminar(auto)"> 
-                    <i class="fas fa-trash"></i>
+                    <i class="fas fa-trash over"></i>
                 </td>
                 <td (click)="openModalEditar(auto)"> 
-                    <i class="fas fa-pen-square"></i>
+                    <i class="fas fa-pen-square over"></i>
                 </td>
     
                 

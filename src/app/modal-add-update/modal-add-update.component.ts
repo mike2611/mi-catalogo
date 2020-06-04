@@ -29,10 +29,12 @@ export class ModalAddUpdateComponent {
   }
 
   onSubmit(){
-    if(this.auto.modelos[0]>this.auto.modelos[1]){
+    if(this.auto.modelos[0]>this.auto.modelos[this.auto.modelos.length - 1]){
      window.alert("El primer valor no puede ser mayor al segundo");
     }
+    else{
     this.activeModal.close(this.auto);
+    }
   }
 
 

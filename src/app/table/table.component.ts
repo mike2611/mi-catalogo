@@ -21,18 +21,20 @@ export class TableComponent implements OnInit {
   page : number;
   pageSize : number;
   displayProgressBar : boolean;
+  searchText;
  
 
   constructor(private autoService: AutosService, private modalService: NgbModal) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.displayProgressBar = true;
     this.page = +sessionStorage.getItem('currentPage');
     this.pageSize = 10;
     this.autoService.getAutos().subscribe((response)=>{
       setTimeout(() => { 
       this.displayProgressBar = false;
-      this.autos = response.data;},500)
+      this.autos = response.data;
+    },1000)
       })
 
   }
@@ -45,7 +47,10 @@ export class TableComponent implements OnInit {
 
     modalRef.result.then(
       (auto)=>{     
-        this.autoService.updateAutos(auto).subscribe(response => console.log(response));     
+        this.autoService.updateAutos(auto).subscribe(value => {
+        sessionStorage.setItem('currentPage',this.page.toString());
+        this.ngOnInit();       
+        });
       },
       (reason)=>{
         console.log(reason);
@@ -59,10 +64,11 @@ export class TableComponent implements OnInit {
 
     modalRef.result.then(
       (autoForm)=>{
-        this.autoService.addAutos(autoForm).subscribe(response => console.log(response)); 
-        sessionStorage.setItem('currentPage',this.page.toString());
-        this.ngOnInit();        
-      },
+        this.autoService.addAutos(autoForm).subscribe(value => {
+          sessionStorage.setItem('currentPage',this.page.toString());
+          this.ngOnInit();       
+          });
+        },
       (reason)=>{
         console.log(reason);
       }
@@ -75,10 +81,11 @@ export class TableComponent implements OnInit {
     modalRef.componentInstance.auto = auto;
     modalRef.result.then(
       (autoTemp) => {
-        this.autoService.deleteAutos(autoTemp).subscribe(response => {console.log(response)});
-        sessionStorage.setItem('currentPage',this.page.toString());
-        this.ngOnInit();
-      },
+        this.autoService.deleteAutos(autoTemp).subscribe(value => {
+          sessionStorage.setItem('currentPage',this.page.toString());
+          this.ngOnInit();       
+          });
+        },
       (reason) =>{
        console.log(reason);
       }

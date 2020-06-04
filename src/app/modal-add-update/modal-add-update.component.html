@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 <label for="Submarca">Submarca</label>
-                <input type="text" class="form-control" id="marca" placeholder="Agrega la submarca" [(ngModel)]="auto.submarca" name="submarca" required
+                <input [class.is-invalid]="submarca.invalid && (submarca.dirty || submarca.touched)" type="text" class="form-control" id="marca" placeholder="Agrega la submarca" [(ngModel)]="auto.submarca" name="submarca" required
                  minlength="4" #submarca = "ngModel">
             </div>
             <div *ngIf="submarca.invalid && (submarca.dirty || submarca.touched)">
