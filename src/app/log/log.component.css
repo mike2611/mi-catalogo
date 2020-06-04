@@ -1,0 +1,15 @@
+.log{
+    background-color: #96858F;
+    color: rgba(245, 245, 245, 0.945);
+    margin: 0 auto;
+    width: 80%;
+    height: 600px;
+    margin-top: 20px;
+    padding: 10px;
+    overflow: scroll;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p{
+    margin: 1px;
+}
