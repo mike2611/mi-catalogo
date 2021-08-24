@@ -1,13 +1,14 @@
 # Mi Catalogo
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 >  This project is a catalogue for cars.
 
-![screenshot](/images/)
+![screenshot](/images/screenShot.png)
 
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
  
 ## Built With
 
