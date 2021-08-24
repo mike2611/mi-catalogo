@@ -1,29 +1,34 @@
-# MiCatalogo
-
-Pagina mi-catalogo https://mike2611.github.io/mi-catalogo/
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+# Mi Catalogo
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+>  This project is a catalogue for cars.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![screenshot](/images/)
 
-## Build
+ 
+## Built With
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- HtML, CSS, TS
+- Angular
+- VSCode
 
-## Running unit tests
+## Live Demo
+Link -> https://mike2611.github.io/mi-catalogo/
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Authors
 
-## Running end-to-end tests
+👤 **Miguel Angel Puentes**
+- GitHub: [@mike2611](https://github.com/mike2611)
+- Twitter: [@MiguelP2611](https://twitter.com/MiguelP2611)
+- LinkedIn: [Miguel Puentes Mata](https://linkedin.com/in/miguel-puentes-mata-90a562139/)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Contributing
 
-## Further help
+Contributions, issues, and feature requests are welcome!
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Show your support
+
+Give a ⭐️ if you like this project!
