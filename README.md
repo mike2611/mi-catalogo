@@ -1,7 +1,7 @@
 # Mi Catalogo
 
 
->  This project is a catalogue for cars.
+>  This project is a catalog for cars. Where cars can be added, deleted, or modified their register.
 
 ![screenshot](/images/screenShot.png)
 
